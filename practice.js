@@ -47,4 +47,39 @@ export function cipher(code) {
   return cipher;
 }
 
-export function analyzeArray(array) {}
+export function analyzeArray(array) {
+  let result = new Object();
+
+  let total = 0;
+  for (let i = 0; i < array.length; i++) {
+    total += array[i];
+  }
+
+  result.average = total / array.length;
+
+  let minimum = '';
+  for (let i = 0; i < array.length; i++) {
+    if (minimum == '') {
+      minimum = array[i];
+    }
+    if (array[i] < minimum) {
+      minimum = array[i];
+    }
+  }
+  result.min = minimum;
+
+  let maximum = '';
+  for (let i = 0; i < array.length; i++) {
+    if (maximum == '') {
+      maximum = array[i];
+    }
+    if (array[i] > maximum) {
+      maximum = array[i];
+    }
+  }
+  result.max = maximum;
+
+  result.length = array.length;
+
+  return result;
+}
